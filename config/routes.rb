@@ -1,4 +1,7 @@
 ReverseAuction::Application.routes.draw do
+  root :to => "auctions#index"
+  resources :auctions
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

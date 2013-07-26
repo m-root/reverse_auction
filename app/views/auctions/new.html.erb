@@ -1,0 +1,12 @@
+<h2> New Service Request</h2>
+<%= form_for(@auction) do |f| %>
+  <p>
+    <%= f.label :service %>
+    <%= f.text_field :service %>
+  </p>
+
+  <p>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  <%= f.submit %>
+<% end %>
