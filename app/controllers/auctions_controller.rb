@@ -7,12 +7,13 @@ class AuctionsController < ApplicationController
   end
 
   def create
-    @auction = Auction.new(params[:project])
+    @auction = Auction.new(params[:auction])
     if @auction.save
       flash[:notice] = "Auction has been initiated."
       redirect_to @auction
     else
-      # nothing, yet
+      flash[:alert] = "Auction has not been initiated."
+      render action: "new"
     end
   end
 

@@ -1,5 +1,6 @@
 <h2> New Service Request</h2>
 <%= form_for(@auction) do |f| %>
+<%= f.error_messages %>
   <p>
     <%= f.label :service %>
     <%= f.text_field :service %>
