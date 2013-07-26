@@ -1,4 +1,6 @@
 ReverseAuction::Application.routes.draw do
+  devise_for :doctors
+
   root to: "auctions#index"
   resources :auctions
 
