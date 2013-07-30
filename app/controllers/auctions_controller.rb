@@ -21,4 +21,19 @@ class AuctionsController < ApplicationController
   def show
     @auction = Auction.find(params[:id])
   end
+
+  def edit
+    @auction = Auction.find(params[:id])
+  end
+
+  def update
+    @auction = Auction.find(params[:id])
+    if @auction.update_attributes(params[:auction])
+      flash[:notice] = "Auction has been updated."
+      redirect_to @auction
+    else
+      flash[:alert] = "Auction has not been updated."
+      render action: "edit"
+    end
+  end
 end
