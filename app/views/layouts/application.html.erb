@@ -29,6 +29,7 @@
     Signed in as <%= current_patient.email %>
   <% else %>
     <%= link_to "Patient Sign up", new_patient_registration_path %>
+    <%= link_to "Patient Sign in", new_patient_session_path %>
   <% end %>
 </nav>
 
