@@ -16,7 +16,14 @@ feature "Creating Bids" do
     page.should have_content("Bid has been created.")
   end
 
-  scenario "Creating a bid without valid attributes fails" do
+  scenario "Creating a bid with no values fails" do
+    click_button "Create Bid"
+    page.should have_content("Bid has not been created.")
+    page.should have_content("Maximum bid can't be blank")
+    page.should have_content("Lowest bid can't be blank")
+  end
+
+  scenario "Creating a bid with negative values fails" do
     fill_in "Maximum bid", with: "-1.00"
     fill_in "Lowest bid", with: "-1.00"
     click_button "Create Bid"
