@@ -1,1 +1,8 @@
 <%= link_to "Service Request", new_auction_path %>
+
+<h2>Auctions</h2>
+<ul>
+  <% @auctions.each do |auction| %>
+    <li><%= link_to auction.service, auction %></li>
+  <% end %>
+</ul>
