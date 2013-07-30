@@ -20,6 +20,7 @@
     Signed in as <%= current_doctor.email %>
   <% else %>
     <%= link_to "Doctor Sign up", new_doctor_registration_path %>
+    <%= link_to "Doctor Sign in", new_doctor_session_path %>
   <% end %>
 </nav>
 

@@ -1,0 +1,16 @@
+<%= form_for [@auction, @bid] do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :maximum_bid %><br>
+    <%= f.number_field :maximum_bid %>
+  </p>
+  <p>
+    <%= f.label :lowest_bid %><br>
+    <%= f.number_field :lowest_bid %>
+  </p>
+  <p>
+    <%= f.label :additional_offers %>
+    <%= f.text_area :additional_offers %>
+  </p>
+  <%= f.submit %>
+<% end %>

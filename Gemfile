@@ -35,6 +35,7 @@ group :test do
   gem 'pry-rails'
   gem 'pry-debugger'
   gem 'launchy'
+  gem 'simplecov', :require => false
 end
 
 
