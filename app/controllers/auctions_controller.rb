@@ -1,4 +1,6 @@
 class AuctionsController < ApplicationController
+before_filter :find_project, only: [:show, :edit, :update, :destroy]
+
   def index
     @auctions = Auction.all
   end
@@ -19,15 +21,12 @@ class AuctionsController < ApplicationController
   end
 
   def show
-    @auction = Auction.find(params[:id])
   end
 
   def edit
-    @auction = Auction.find(params[:id])
   end
 
   def update
-    @auction = Auction.find(params[:id])
     if @auction.update_attributes(params[:auction])
       flash[:notice] = "Auction has been updated."
       redirect_to @auction
@@ -38,9 +37,16 @@ class AuctionsController < ApplicationController
   end
 
   def destroy
-    @auction = Auction.find(params[:id])
     @auction.destroy
     flash[:notice] = "Auction has been deleted."
+    redirect_to auctions_path
+  end
+
+private
+  def find_project
+    @auction = Auction.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "The service request you were looking for could not be found."
     redirect_to auctions_path
   end
 end
