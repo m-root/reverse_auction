@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130730164001) do
+ActiveRecord::Schema.define(:version => 20130730203032) do
 
   create_table "auctions", :force => true do |t|
     t.string   "service"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(:version => 20130730164001) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "bids", :force => true do |t|
+    t.decimal  "maximum_bid",       :precision => 8, :scale => 2
+    t.decimal  "lowest_bid",        :precision => 8, :scale => 2
+    t.text     "additional_offers"
+    t.integer  "auction_id"
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+  end
+
+  add_index "bids", ["auction_id"], :name => "index_bids_on_auction_id"
 
   create_table "doctors", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

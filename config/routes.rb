@@ -2,7 +2,12 @@ ReverseAuction::Application.routes.draw do
   devise_for :doctors
 
   root to: "auctions#index"
-  resources :auctions
+
+resources :auctions do
+  resources :bids
+end
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
