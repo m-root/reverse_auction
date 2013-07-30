@@ -16,7 +16,11 @@
 <% end %>
 
 <nav>
-  <%= link_to "Sign up", new_doctor_registration_path %>
+  <% if doctor_signed_in? %>
+    Signed in as <%= current_doctor.email %>
+  <% else %>
+    <%= link_to "Doctor Sign up", new_doctor_registration_path %>
+  <% end %>
 </nav>
 
 <%= yield %>
