@@ -36,4 +36,11 @@ class AuctionsController < ApplicationController
       render action: "edit"
     end
   end
+
+  def destroy
+    @auction = Auction.find(params[:id])
+    @auction.destroy
+    flash[:notice] = "Auction has been deleted."
+    redirect_to auctions_path
+  end
 end
