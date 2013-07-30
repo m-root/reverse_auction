@@ -1,6 +1,6 @@
 FactoryGirl.define do
-  factory :doctor do
-    sequence(:email) { |n| "doctor#{n}@reverseauction.com" }
+  factory :patient do
+    sequence(:email) { |n| "patient#{n}@reverseauction.com" }
     password "password"
     password_confirmation "password"
   end

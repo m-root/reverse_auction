@@ -34,6 +34,7 @@ group :test do
   gem 'email_spec', '1.2.1'
   gem 'pry-rails'
   gem 'pry-debugger'
+  gem 'launchy'
   gem 'simplecov', :require => false
 end
 

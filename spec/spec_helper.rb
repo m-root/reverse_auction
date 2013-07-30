@@ -12,12 +12,12 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   config.include Devise::TestHelpers, :type => :controller
+  config.include EmailSpec::Helpers
 
   config.before do
     ActionMailer::Base.deliveries.clear
   end
 
-  config.include EmailSpec::Helpers
 
   # ## Mock Framework
   #
