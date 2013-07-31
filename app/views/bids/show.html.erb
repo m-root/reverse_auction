@@ -5,3 +5,6 @@
 </div>
 
 <%= link_to "Edit Bid", [:edit, @auction, @bid] %>
+<%= link_to "Delete Bid", [@auction, @bid], method: :delete,
+    confirm: "Are you sure you want to delete this bid?" %>
+
