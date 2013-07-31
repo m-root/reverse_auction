@@ -1,5 +1,5 @@
 class AuctionsController < ApplicationController
-before_filter :find_project, only: [:show, :edit, :update, :destroy]
+before_filter :find_auction, only: [:show, :edit, :update, :destroy]
 
   def index
     @auctions = Auction.all
@@ -43,7 +43,7 @@ before_filter :find_project, only: [:show, :edit, :update, :destroy]
   end
 
 private
-  def find_project
+  def find_auction
     @auction = Auction.find(params[:id])
     rescue ActiveRecord::RecordNotFound
     flash[:alert] = "The service request you were looking for could not be found."
