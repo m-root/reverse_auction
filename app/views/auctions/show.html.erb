@@ -1,4 +1,5 @@
 <h2><%= @auction.service %></h2>
+<span id='requester'>Requested by <%= @auction.patient.email %></span>
 
 <%= link_to "Edit Auction", edit_auction_path(@auction) %>
 <%= link_to "Delete Auction", auction_path(@auction),

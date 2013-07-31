@@ -11,14 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130731041717) do
+ActiveRecord::Schema.define(:version => 20130731191537) do
 
   create_table "auctions", :force => true do |t|
     t.string   "service"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "patient_id"
   end
+
+  add_index "auctions", ["patient_id"], :name => "index_auctions_on_patient_id"
 
   create_table "bids", :force => true do |t|
     t.decimal  "maximum_bid",       :precision => 8, :scale => 2

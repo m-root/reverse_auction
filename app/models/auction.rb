@@ -3,7 +3,7 @@ class Auction < ActiveRecord::Base
 
   validates :service, presence: true
 
-  belongs_to :patients
+  belongs_to :patient
 
   has_many :bids
   has_many :bids, dependent: :delete_all

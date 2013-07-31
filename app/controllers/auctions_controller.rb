@@ -1,4 +1,5 @@
 class AuctionsController < ApplicationController
+before_filter :authenticate_patient!, except: [:index, :show]
 before_filter :find_auction, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -11,6 +12,7 @@ before_filter :find_auction, only: [:show, :edit, :update, :destroy]
 
   def create
     @auction = Auction.new(params[:auction])
+    @auction.patient = current_patient
     if @auction.save
       flash[:notice] = "Auction has been initiated."
       redirect_to @auction

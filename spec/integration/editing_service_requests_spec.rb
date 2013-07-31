@@ -1,10 +1,18 @@
 require 'spec_helper'
 
 feature "Editing Auctions" do
+  let!(:auction) { Factory(:auction) }
+  let!(:patient) { Factory(:confirmed_patient) }
+  let!(:auction) do
+    auction = Factory(:auction)
+    auction.update_attribute(:patient, patient)
+    auction
+  end
+
   before do
-    Factory(:auction, service: "Sinus Infection")
+    sign_in_as!(type: "patient", user: patient)
     visit '/'
-    click_link "Sinus Infection"
+    click_link auction.service
     click_link "Edit Auction"
   end
 
