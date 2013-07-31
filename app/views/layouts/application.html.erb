@@ -18,6 +18,7 @@
 <nav>
   <% if doctor_signed_in? %>
     Signed in as <%= current_doctor.email %>
+    (<%= link_to "Doctor Sign out", destroy_doctor_session_path, method: :delete %>)
   <% else %>
     <%= link_to "Doctor Sign up", new_doctor_registration_path %>
     <%= link_to "Doctor Sign in", new_doctor_session_path %>
@@ -27,6 +28,7 @@
 <nav>
   <% if patient_signed_in? %>
     Signed in as <%= current_patient.email %>
+    (<%= link_to "Patient Sign out", destroy_patient_session_path, method: :delete %>)
   <% else %>
     <%= link_to "Patient Sign up", new_patient_registration_path %>
     <%= link_to "Patient Sign in", new_patient_session_path %>

@@ -10,7 +10,7 @@ feature 'Deleting tickets' do
   end
 
   before do
-    sign_in_as!(doctor)
+    sign_in_as!(type: "doctor", user: doctor)
     visit '/'
     click_link auction.service
     click_link bid.lowest_bid.to_s
