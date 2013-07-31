@@ -3,3 +3,8 @@
   <%= number_with_precision(@bid.maximum_bid, precision: 2) %>
   <%= simple_format(@bid.additional_offers) %>
 </div>
+
+<%= link_to "Edit Bid", [:edit, @auction, @bid] %>
+<%= link_to "Delete Bid", [@auction, @bid], method: :delete,
+    confirm: "Are you sure you want to delete this bid?" %>
+

@@ -20,6 +20,25 @@ before_filter :find_bid, only: [:show, :edit, :update, :destroy]
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @bid.update_attributes(params[:bid])
+      flash[:notice] = "Bid has been updated."
+      redirect_to [@auction, @bid]
+    else
+      flash[:alert] = "Bid has not been updated."
+      render action: "edit"
+    end
+  end
+
+  def destroy
+    @bid.destroy
+    flash[:notice] = "Bid has been deleted."
+    redirect_to @auction
+  end
+
 private
   def find_auction
     @auction = Auction.find(params[:auction_id])
