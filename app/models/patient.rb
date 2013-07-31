@@ -6,4 +6,6 @@ class Patient < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
   attr_accessible :email, :password, :password_confirmation
+
+  has_many :auctions
 end

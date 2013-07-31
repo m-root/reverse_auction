@@ -3,5 +3,6 @@ class Auction < ActiveRecord::Base
 
   validates :service, :presence => true
 
+  belongs_to :patients
   has_many :bids
 end
