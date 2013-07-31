@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130730203032) do
+ActiveRecord::Schema.define(:version => 20130731041717) do
 
   create_table "auctions", :force => true do |t|
     t.string   "service"
@@ -27,9 +27,11 @@ ActiveRecord::Schema.define(:version => 20130730203032) do
     t.integer  "auction_id"
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
+    t.integer  "doctor_id"
   end
 
   add_index "bids", ["auction_id"], :name => "index_bids_on_auction_id"
+  add_index "bids", ["doctor_id"], :name => "index_bids_on_doctor_id"
 
   create_table "doctors", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

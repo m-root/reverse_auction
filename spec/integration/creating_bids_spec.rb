@@ -3,9 +3,19 @@ require 'spec_helper'
 feature "Creating Bids" do
   before do
     Factory(:auction, service: "Need Vaccine")
+    user = Factory(:doctor, email: "doctor@example.com")
+    user.confirm!
+
     visit '/'
     click_link "Need Vaccine"
     click_link "New Bid"
+    message = "You need to sign in or sign up before continuing."
+    page.should have_content(message)
+
+    fill_in "Email", with: "doctor@example.com"
+    fill_in "Password", with: "password"
+    click_button "Sign in"
+    within("h2") { page.should have_content("New Bid") }
   end
 
   scenario "Creating a bid" do
@@ -14,6 +24,9 @@ feature "Creating Bids" do
     fill_in "Additional offers", with: "Free lollipop"
     click_button "Create Bid"
     page.should have_content("Bid has been created.")
+    within("#bid #bidder") do
+      page.should have_content("Created by doctor@example.com")
+    end
   end
 
   scenario "Creating a bid with no values fails" do

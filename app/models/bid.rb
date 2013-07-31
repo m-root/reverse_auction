@@ -1,5 +1,6 @@
 class Bid < ActiveRecord::Base
   belongs_to :auction
+  belongs_to :doctor
   attr_accessible :additional_offers, :lowest_bid, :maximum_bid
 
   validates :maximum_bid, presence: true, numericality: { greater_than: 0 }

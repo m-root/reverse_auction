@@ -1,4 +1,5 @@
 class BidsController < ApplicationController
+before_filter :authenticate_doctor!, except: [:index, :show]
 before_filter :find_auction
 before_filter :find_bid, only: [:show, :edit, :update, :destroy]
 
@@ -8,6 +9,7 @@ before_filter :find_bid, only: [:show, :edit, :update, :destroy]
 
   def create
     @bid = @auction.bids.build(params[:bid])
+    @bid.doctor = current_doctor
     if @bid.save
       flash[:notice] = "Bid has been created."
       redirect_to [@auction, @bid]

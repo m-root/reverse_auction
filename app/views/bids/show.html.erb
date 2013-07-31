@@ -2,6 +2,7 @@
   <h2><%= number_with_precision(@bid.lowest_bid, precision: 2) %></h2>
   <%= number_with_precision(@bid.maximum_bid, precision: 2) %>
   <%= simple_format(@bid.additional_offers) %>
+  <span id='bidder'>Created by <%= @bid.doctor.email %></span>
 </div>
 
 <%= link_to "Edit Bid", [:edit, @auction, @bid] %>

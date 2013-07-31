@@ -3,9 +3,11 @@ require 'spec_helper'
 feature "Viewing bids" do
   before do
     sinus_infection = Factory(:auction, service: "Sinus Infection")
-    Factory(:bid, auction: sinus_infection,
+    doctor = Factory(:doctor)
+    bid = Factory(:bid, auction: sinus_infection,
             lowest_bid: "30.00", maximum_bid: "100.00",
             additional_offers: "Free follow up appointment")
+    bid.update_attribute(:doctor, doctor)
 
     need_vaccine = Factory(:auction, service: "Need Vaccine")
     Factory(:bid, auction: need_vaccine,

@@ -2,9 +2,15 @@ require 'spec_helper'
 
 feature 'Deleting tickets' do
   let!(:auction) { Factory(:auction) }
-  let!(:bid) { Factory(:bid, auction: auction) }
+  let!(:doctor) { Factory(:confirmed_doctor) }
+  let!(:bid) do
+    bid = Factory(:bid, auction: auction)
+    bid.update_attribute(:doctor, doctor)
+    bid
+  end
 
   before do
+    sign_in_as!(doctor)
     visit '/'
     click_link auction.service
     click_link bid.lowest_bid.to_s
