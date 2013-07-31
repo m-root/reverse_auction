@@ -5,16 +5,11 @@ feature "Creating Bids" do
     Factory(:auction, service: "Need Vaccine")
     doctor = Factory(:doctor, email: "doctor@example.com")
     doctor.confirm!
+    sign_in_as!(type: "doctor", user: doctor)
 
     visit '/'
     click_link "Need Vaccine"
     click_link "New Bid"
-    message = "You need to sign in or sign up before continuing."
-    page.should have_content(message)
-
-    fill_in "Email", with: "doctor@example.com"
-    fill_in "Password", with: "password"
-    click_button "Sign in"
     within("h2") { page.should have_content("New Bid") }
   end
 

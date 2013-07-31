@@ -6,14 +6,10 @@ feature 'Creating Auctions' do
   scenario "Only patient can make an auction" do
     patient = Factory(:patient, email: "patient@example.com")
     patient.confirm!
+    sign_in_as!(type: "patient", user: patient)
 
     visit '/'
     click_link 'Service Request'
-    page.should have_content ("You need to sign in or sign up before continuing.")
-
-    fill_in "Email", with: "patient@example.com"
-    fill_in "Password", with: "password"
-    click_button "Sign in"
     within("h2") { page.should have_content("Service Request") }
 
     fill_in 'Service', with: 'Sinus Infection'
