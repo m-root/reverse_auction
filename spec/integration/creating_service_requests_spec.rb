@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Creating Auctions' do
   let!(:auction) { Factory(:auction) }
 
-  scenario "Only Patient can make an auction" do
+  scenario "Only patient can make an auction" do
     patient = Factory(:patient, email: "patient@example.com")
     patient.confirm!
 
@@ -28,8 +28,10 @@ feature 'Creating Auctions' do
   scenario "Patient cannot create an auction without a service request" do
     patient = Factory(:confirmed_patient)
     sign_in_as!(type: "patient", user: patient)
+
     visit '/'
     click_link 'Service Request'
+
     click_button 'Create Auction'
     page.should have_content("Auction has not been initiated.")
     page.should have_content("Service can't be blank")
