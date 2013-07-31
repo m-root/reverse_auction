@@ -5,10 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-doctor = Doctor.create(email: "doctor@ra.com", password: "password")
-doctor.confirm!
+doctor1 = Doctor.create(email: "doctor1@ra.com", password: "password")
+doctor1.confirm!
+doctor2 = Doctor.create(email: "doctor2@ra.com", password: "password")
+doctor2.confirm!
 
-patient = Patient.create(email: "patient@ra.com", password: "password")
-patient.confirm!
+patient1 = Patient.create(email: "patient1@ra.com", password: "password")
+patient1.confirm!
+patient2 = Patient.create(email: "patient2@ra.com", password: "password")
+patient2.confirm!
 
 Auction.create(service: "Bad Sinus Infection")

@@ -1,4 +1,6 @@
-<%= link_to "Service Request", new_auction_path %>
+<% patients_only do %>
+  <%= link_to "Service Request", new_auction_path %>
+<% end %>
 
 <h2>Auctions</h2>
 <ul>

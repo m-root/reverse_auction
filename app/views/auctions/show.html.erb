@@ -1,18 +1,23 @@
 <h2><%= @auction.service %></h2>
-<span id='requester'>Requested by <%= @auction.patient.email %></span>
+<%= @auction.description %>
+<p><span id='requester'>Requested by <%= @auction.patient.email %></span></p>
 
-<%= link_to "Edit Auction", edit_auction_path(@auction) %>
-<%= link_to "Delete Auction", auction_path(@auction),
-    method: :delete,
-    confirm: "Are you sure you want to delete this service request?" %>
-
-<%= link_to "New Bid", new_auction_bid_path(@auction) %>
+<% patients_only do %>
+  <%= link_to "Edit Auction", edit_auction_path(@auction) %>
+  <%= link_to "Delete Auction", auction_path(@auction),
+      method: :delete,
+      confirm: "Are you sure you want to delete this service request?" %>
+<% end %>
 
 <ul id='bids'>
   <% @auction.bids.each do |bid| %>
     <li>
-      <%= link_to number_with_precision(bid.lowest_bid, precision: 2), [@auction, bid] %> +
+      <%= link_to number_with_precision(bid.lowest_bid, precision: 2), [@auction, bid] %><br>
       <%= bid.additional_offers %>
     </li>
   <% end %>
 </ul>
+
+<% doctors_only do %>
+  <%= link_to "New Bid", new_auction_bid_path(@auction) %>
+<% end %>

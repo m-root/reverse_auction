@@ -1,10 +1,12 @@
 <div id='bid'>
   <h2><%= number_with_precision(@bid.lowest_bid, precision: 2) %></h2>
   <%= simple_format(@bid.additional_offers) %>
-  <span id='bidder'>Created by <%= @bid.doctor.email %></span>
+  <p><span id='bidder'>Created by <%= @bid.doctor.email %></span></p>
 </div>
 
-<%= link_to "Edit Bid", [:edit, @auction, @bid] %>
-<%= link_to "Delete Bid", [@auction, @bid], method: :delete,
-    confirm: "Are you sure you want to delete this bid?" %>
+<% doctors_only do %>
+  <%= link_to "Edit Bid", [:edit, @auction, @bid] %>
+  <%= link_to "Delete Bid", [@auction, @bid], method: :delete,
+      confirm: "Are you sure you want to delete this bid?" %>
+<% end %>
 
