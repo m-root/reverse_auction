@@ -26,7 +26,6 @@ feature "Viewing bids" do
     within("#bid h2") do
       page.should have_content("30.00")
     end
-    page.should have_content("100.00")
     page.should have_content("Free follow up appointment")
   end
 end

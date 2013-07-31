@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 feature "Creating Bids" do
-  before do
+  scenario "Doctor Creating a bid" do
     Factory(:auction, service: "Need Vaccine")
-    user = Factory(:doctor, email: "doctor@example.com")
-    user.confirm!
+    doctor = Factory(:doctor, email: "doctor@example.com")
+    doctor.confirm!
 
     visit '/'
     click_link "Need Vaccine"
@@ -16,9 +16,7 @@ feature "Creating Bids" do
     fill_in "Password", with: "password"
     click_button "Sign in"
     within("h2") { page.should have_content("New Bid") }
-  end
 
-  scenario "Creating a bid" do
     fill_in "Maximum bid", with: "45.00"
     fill_in "Lowest bid", with: "20.00"
     fill_in "Additional offers", with: "Free lollipop"
@@ -29,14 +27,44 @@ feature "Creating Bids" do
     end
   end
 
-  scenario "Creating a bid with no values fails" do
+  scenario "Doctor Creating a bid with no values fails" do
+    Factory(:auction, service: "Need Vaccine")
+    doctor = Factory(:doctor, email: "doctor@example.com")
+    doctor.confirm!
+
+    visit '/'
+    click_link "Need Vaccine"
+    click_link "New Bid"
+    message = "You need to sign in or sign up before continuing."
+    page.should have_content(message)
+
+    fill_in "Email", with: "doctor@example.com"
+    fill_in "Password", with: "password"
+    click_button "Sign in"
+    within("h2") { page.should have_content("New Bid") }
+
     click_button "Create Bid"
     page.should have_content("Bid has not been created.")
     page.should have_content("Maximum bid can't be blank")
     page.should have_content("Lowest bid can't be blank")
   end
 
-  scenario "Creating a bid with negative values fails" do
+  scenario "Doctor Creating a bid with negative values fails" do
+    Factory(:auction, service: "Need Vaccine")
+    doctor = Factory(:doctor, email: "doctor@example.com")
+    doctor.confirm!
+
+    visit '/'
+    click_link "Need Vaccine"
+    click_link "New Bid"
+    message = "You need to sign in or sign up before continuing."
+    page.should have_content(message)
+
+    fill_in "Email", with: "doctor@example.com"
+    fill_in "Password", with: "password"
+    click_button "Sign in"
+    within("h2") { page.should have_content("New Bid") }
+
     fill_in "Maximum bid", with: "-1.00"
     fill_in "Lowest bid", with: "-1.00"
     click_button "Create Bid"
