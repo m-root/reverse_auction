@@ -3,7 +3,12 @@ before_filter :authenticate_patient!, except: [:index, :show]
 before_filter :find_auction, only: [:show, :edit, :update, :destroy]
 
   def index
-    @auctions = Auction.all
+    if current_patient
+      @patient = current_patient
+      @auctions = @patient.auctions
+    else
+      @auctions = Auction.all
+    end
   end
 
   def new
