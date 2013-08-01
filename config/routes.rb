@@ -3,7 +3,7 @@ ReverseAuction::Application.routes.draw do
 
   devise_for :doctors
 
-  root to: "auctions#index"
+  root :to => "homepage#home"
 
 resources :auctions do
   resources :bids
