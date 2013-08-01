@@ -2,7 +2,7 @@
 By [Nicole Glasgow](http://blog.nicoleglasgow.org/) and [Stephanie Datu](http://blog.stephdatu.com)
 
 ## A Reverse Auction Application
-**Discount Doctors** provides quality medical services at an affordable price that you decide! Our network of local doctors allows you to find the best services at the best prices. If you're insurance won't cover something, or you don't have it at all, we're here to help!
+**Discount Doctors** provides access to quality medical providers at an affordable price that you decide! Our network of local doctors allows you to find the best services at the best prices. If you're insurance won't cover something, or you don't have it at all, we're here to help!
 
 ## Installation
 
