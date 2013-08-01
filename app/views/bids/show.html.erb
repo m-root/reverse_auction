@@ -4,9 +4,10 @@
   <p><span id='bidder'>Created by <%= @bid.doctor.email %></span></p>
 </div>
 
-<% doctors_only do %>
+<% doctors_only_bid do %>
   <%= link_to "Edit Bid", [:edit, @auction, @bid] %>
   <%= link_to "Delete Bid", [@auction, @bid], method: :delete,
       confirm: "Are you sure you want to delete this bid?" %>
 <% end %>
 
+<%= link_to "Back to Service Request", auction_path %>
