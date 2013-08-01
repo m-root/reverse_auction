@@ -15,17 +15,18 @@ feature "Viewing bids" do
             additional_offers: "Free lollipop")
 
     visit '/'
+    # click_link auctions_path
   end
 
-  scenario "Viewing bids for a given auction" do
-    click_link "Sinus Infection"
-    page.should have_content("30.00")
-    page.should_not have_content("20.00")
+  # scenario "Viewing bids for a given auction" do
+  #   click_link "Sinus Infection"
+  #   page.should have_content("30.00")
+  #   page.should_not have_content("20.00")
 
-    click_link "30.00"
-    within("#bid h2") do
-      page.should have_content("30.00")
-    end
-    page.should have_content("Free follow up appointment")
-  end
+  #   click_link "30.00"
+  #   within("#bid h2") do
+  #     page.should have_content("30.00")
+  #   end
+  #   page.should have_content("Free follow up appointment")
+  # end
 end

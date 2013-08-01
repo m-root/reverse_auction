@@ -12,6 +12,7 @@ feature "Deleting auctions" do
   before do
     sign_in_as!(type: "patient", user: patient)
     visit '/'
+    click_link 'Current Service Requests'
     click_link auction.service
   end
 

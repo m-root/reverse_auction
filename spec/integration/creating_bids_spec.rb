@@ -8,6 +8,7 @@ feature "Creating Bids" do
     sign_in_as!(type: "doctor", user: doctor)
 
     visit '/'
+    click_link 'Current Service Requests'
     click_link "Need Vaccine"
     click_link "New Bid"
     within("h2") { page.should have_content("New Bid") }

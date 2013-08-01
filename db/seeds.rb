@@ -14,5 +14,3 @@ patient1 = Patient.create(email: "patient1@ra.com", password: "password")
 patient1.confirm!
 patient2 = Patient.create(email: "patient2@ra.com", password: "password")
 patient2.confirm!
-
-Auction.create(service: "Bad Sinus Infection")

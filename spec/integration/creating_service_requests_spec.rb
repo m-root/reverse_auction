@@ -9,6 +9,7 @@ feature 'Creating Auctions' do
     sign_in_as!(type: "patient", user: patient)
 
     visit '/'
+    click_link 'Current Service Requests'
     click_link 'Service Request'
     within("h2") { page.should have_content("Service Request") }
 
@@ -26,6 +27,7 @@ feature 'Creating Auctions' do
     sign_in_as!(type: "patient", user: patient)
 
     visit '/'
+    click_link 'Current Service Requests'
     click_link 'Service Request'
 
     click_button 'Create Auction'

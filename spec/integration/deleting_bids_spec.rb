@@ -12,6 +12,7 @@ feature 'Deleting tickets' do
   before do
     sign_in_as!(type: "doctor", user: doctor)
     visit '/'
+    click_link 'Current Service Requests'
     click_link auction.service
     click_link bid.lowest_bid.to_s
   end
