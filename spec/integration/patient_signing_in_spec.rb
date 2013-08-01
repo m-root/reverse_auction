@@ -15,7 +15,7 @@ feature 'Patient Signing in' do
   scenario 'Patient Signing in via form' do
     Patient.find_by_email('patient@example.com').confirm!
     visit '/'
-    click_link 'Patient Sign in'
+    click_link 'Patient Sign In'
     fill_in 'Email', with: "patient@example.com"
     fill_in 'Password', with: "password"
     click_button "Sign in"

@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Patient Signing up' do
   scenario 'Successful sign up' do
     visit '/'
-    click_link 'Sign up'
+    click_link 'Patient Sign Up'
     fill_in "Email", :with => "patient@example.com"
     fill_in "Password", :with => "password"
     fill_in "Password confirmation", :with => "password"
