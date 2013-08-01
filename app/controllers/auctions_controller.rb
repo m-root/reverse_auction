@@ -6,8 +6,11 @@ before_filter :find_auction, only: [:show, :edit, :update, :destroy]
     if current_patient
       @patient = current_patient
       @auctions = @patient.auctions
-    else
+    elsif current_doctor
+      @doctor = current_doctor
       @auctions = Auction.all
+    else
+      redirect_to root_path
     end
   end
 

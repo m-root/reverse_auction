@@ -3,3 +3,11 @@
 <p>
   This is the home page for the Reverse Auction sample app.
 </p>
+
+<% patients_only do %>
+  <%= link_to "Current Service Requests", auctions_path %>
+<% end %>
+
+<% doctors_only do %>
+  <%= link_to "Current Service Requests", auctions_path %>
+<% end %>
