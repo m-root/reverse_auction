@@ -4,8 +4,9 @@
   Welcome to Reverse Auction beta site.
 </p>
 
-<%= link_to 'Current Service Requests', auctions_path %>
-
+<% if current_patient || current_doctor %>
+  <%= link_to 'Current Service Requests', auctions_path %>
+<% end %>
 
 
 
