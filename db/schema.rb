@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130731191537) do
+ActiveRecord::Schema.define(:version => 20130830050212) do
 
   create_table "auctions", :force => true do |t|
     t.string   "service"
@@ -28,9 +28,10 @@ ActiveRecord::Schema.define(:version => 20130731191537) do
     t.decimal  "lowest_bid",        :precision => 8, :scale => 2
     t.text     "additional_offers"
     t.integer  "auction_id"
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
+    t.datetime "created_at",                                                         :null => false
+    t.datetime "updated_at",                                                         :null => false
     t.integer  "doctor_id"
+    t.boolean  "accepted",                                        :default => false
   end
 
   add_index "bids", ["auction_id"], :name => "index_bids_on_auction_id"

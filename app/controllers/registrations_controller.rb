@@ -14,6 +14,6 @@ class RegistrationsController < Devise::RegistrationsController
       @doctor = Doctor.new(params[:doctor])
       @doctor.save
     end
-    redirect_to root_path
+    redirect_to root_path, notice: "Please open the link to activate your account."
   end
 end

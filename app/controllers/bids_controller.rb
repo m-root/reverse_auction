@@ -1,5 +1,5 @@
 class BidsController < ApplicationController
-before_filter :authenticate_doctor!, except: [:index, :show]
+before_filter :authenticate_doctor!, except: [:index, :show, :update]
 before_filter :find_auction
 before_filter :find_bid, only: [:show, :edit, :update, :destroy]
 
