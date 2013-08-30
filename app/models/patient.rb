@@ -8,4 +8,6 @@ class Patient < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_many :auctions
+
+  private
 end

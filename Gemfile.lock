@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: 06c860aeeac012f251807322e49eb5eeb0380a58
+  specs:
+    stripe (1.8.6)
+      multi_json (>= 1.0.4, < 2)
+      rest-client (~> 1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -30,7 +38,10 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.5)
     arel (3.0.2)
-    bcrypt-ruby (3.1.1)
+    bcrypt-ruby (3.1.2)
+    better_errors (0.9.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     bootstrap-sass (2.3.2.1)
       sass (~> 3.2)
     builder (3.0.4)
@@ -59,11 +70,11 @@ GEM
       debugger-ruby_core_source (~> 1.2.3)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.3)
-    devise (3.0.0)
+    devise (2.1.0)
       bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      warden (~> 1.2.3)
+      orm_adapter (~> 0.0.7)
+      railties (~> 3.1)
+      warden (~> 1.1.1)
     diff-lcs (1.2.4)
     dynamic_form (1.1.4)
     email_spec (1.2.1)
@@ -99,10 +110,10 @@ GEM
     method_source (0.8.1)
     mime-types (1.23)
     mini_portile (0.5.1)
-    multi_json (1.7.7)
+    multi_json (1.7.9)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
-    orm_adapter (0.4.0)
+    orm_adapter (0.0.7)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -139,6 +150,8 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -165,6 +178,9 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
+    simple_form (2.1.0)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     simplecov (0.7.1)
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
@@ -193,7 +209,7 @@ GEM
     uglifier (2.1.2)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    warden (1.2.3)
+    warden (1.1.1)
       rack (>= 1.0)
     websocket (1.0.7)
     xpath (0.1.4)
@@ -203,10 +219,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
   bootstrap-sass
   capybara (= 1.1.2)
   coffee-rails (~> 3.2.1)
-  devise
+  devise (= 2.1.0)
   dynamic_form (= 1.1.4)
   email_spec (= 1.2.1)
   factory_girl (= 2.6.4)
@@ -219,8 +236,10 @@ DEPENDENCIES
   rails (= 3.2.13)
   rspec-rails (~> 2.11)
   sass-rails (~> 3.2.3)
+  simple_form
   simplecov
   sqlite3
+  stripe!
   therubyracer
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)

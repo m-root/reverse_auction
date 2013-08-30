@@ -80,4 +80,13 @@ ActiveRecord::Schema.define(:version => 20130731191537) do
   add_index "patients", ["email"], :name => "index_patients_on_email", :unique => true
   add_index "patients", ["reset_password_token"], :name => "index_patients_on_reset_password_token", :unique => true
 
+  create_table "permissions", :force => true do |t|
+    t.integer  "patient_id"
+    t.integer  "thing_id"
+    t.string   "thing_type"
+    t.string   "action"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
 end

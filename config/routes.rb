@@ -1,12 +1,19 @@
 ReverseAuction::Application.routes.draw do
-  devise_for :patients
+root :to => "homepage#home"
 
-  devise_for :doctors
+devise_for :patients#, :controllers => { :registrations => "registrations" }
+  resources :patient_profile
 
-  root :to => "homepage#home"
+devise_scope :patient do
+  get 'patients/sign_up' => 'registrations#new', :as => :patient_sign_in
+end
+
+devise_for :doctors, :controllers => { :registrations => "registrations" }
+  resources :doctor_profile
 
 resources :auctions do
   resources :bids
+
 end
 
 

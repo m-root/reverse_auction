@@ -14,3 +14,5 @@ patient1 = Patient.create(email: "patient1@ra.com", password: "password")
 patient1.confirm!
 patient2 = Patient.create(email: "patient2@ra.com", password: "password")
 patient2.confirm!
+patient3 = Patient.create(email: "patient3@ra.com", password: "password")
+patient3.confirm!

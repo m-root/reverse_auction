@@ -8,7 +8,7 @@ feature 'Creating Auctions' do
     patient.confirm!
     sign_in_as!(type: "patient", user: patient)
 
-    visit '/'
+    visit "/"
     click_link 'Current Service Requests'
     click_link 'Service Request'
     within("h2") { page.should have_content("Service Request") }

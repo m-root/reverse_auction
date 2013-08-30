@@ -1,4 +1,4 @@
-<% patients_only do %>
+<% if current_patient %>
   <%= link_to "Service Request", new_auction_path %>
 <% end %>
 
