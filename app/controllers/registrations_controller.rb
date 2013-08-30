@@ -14,5 +14,6 @@ class RegistrationsController < Devise::RegistrationsController
       @doctor = Doctor.new(params[:doctor])
       @doctor.save
     end
+    redirect_to root_path
   end
 end
