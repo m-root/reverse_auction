@@ -1,5 +1,5 @@
 <div id='bid'>
-  <h2><%= number_with_precision(@bid.lowest_bid, precision: 2) %></h2>
+  <h2><%= number_with_precision(@bid.maximum_bid, precision: 2) %></h2>
   <%= simple_format(@bid.additional_offers) %>
   <p><span id='bidder'>Created by <%= @bid.doctor.email %></span></p>
 </div>
@@ -8,18 +8,34 @@
   <% unless @bid.accepted %>
       <%= form_for [@auction, @bid] do |f| %>
       <%= f.hidden_field :accepted, value: true %>
-      <div>
-        <%= label_tag :credit_card_number %>
-        <%= text_field_tag :credit_card_number %>
-      </div>
       <%= f.submit "Accept bid", class: 'btn' %>
       <% end %>
   <% else %>
     Bid Accepted
+      <div>
+          <%= form_for [@auction, @bid] do |f| %>
+          <%= label_tag :credit_card_number %>
+          <%= text_field_tag :credit_card_number %>
+          <%= label_tag :expiration_date %>
+          <%= text_field_tag :expiration_date %>
+          <%= label_tag :Name %>
+          <%= text_field_tag :Name %>
+          <%= label_tag :Address %>
+          <%= text_field_tag :Address %><br>
+          <%= text_field_tag :Address %><br>
+          <%= label_tag :City %>
+          <%= select_tag :City,  options_for_select(king_county_cities) %><br>
+          <%= label_tag :State %>
+          <%= select_tag :State,  options_for_select(us_states) %><br>
+          <%= label_tag :Zip %>
+          <%= text_field_tag :Zip %><br>
+          <%= f.submit "Pay", class: 'btn' %>
+      </div>
+    <% end %>
   <% end %>
 <% end %>
 
-<% doctors_only do %>
+<% doctors_only_bid do %>
   <%= link_to "Edit Bid", [:edit, @auction, @bid] %>
   <%= link_to "Delete Bid", [@auction, @bid], method: :delete,
       confirm: "Are you sure you want to delete this bid?" %>
