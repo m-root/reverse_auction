@@ -46,6 +46,9 @@ group :test do
   gem 'simplecov', :require => false
 end
 
+group :development do
+  gem 'brakeman', :require => false
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

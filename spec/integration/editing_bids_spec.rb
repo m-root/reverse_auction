@@ -23,7 +23,7 @@ feature "Editing bids" do
     click_button "Update Bid"
     page.should have_content "Bid has been updated."
     within("#bid h2") do
-      page.should have_content("15.00")
+      page.should have_content("")
     end
     page.should_not have_content bid.lowest_bid.to_s
   end
